@@ -1,10 +1,15 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import {Module} from "@nestjs/common";
+import {SongModule} from "./Song/song.module";
+import {MongooseModule} from "@nestjs/mongoose";
+
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+    imports: [
+        MongooseModule.forRoot(''),
+        SongModule
+    ]
 })
-export class AppModule {}
+
+export class AppModule{
+
+}
