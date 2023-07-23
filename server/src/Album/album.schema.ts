@@ -1,0 +1,21 @@
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { HydratedDocument } from 'mongoose';
+
+export type AlbumDocument = HydratedDocument<Album>;
+
+@Schema()
+export class Album {
+    @Prop()
+    title: string;
+
+    @Prop()
+    artist: string;
+
+    @Prop()
+    release_date: number;
+
+    @Prop()
+    cover_url: string;
+}
+
+export const AlbumSchema = SchemaFactory.createForClass(Album);

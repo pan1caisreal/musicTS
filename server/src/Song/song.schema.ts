@@ -1,5 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
+import * as mongoose from 'mongoose';
+import {Album} from "../Album/album.schema";
 
 export type SongDocument = HydratedDocument<Song>;
 
@@ -11,14 +13,14 @@ export class Song {
     @Prop()
     artist: string;
 
-    @Prop()
-    album_id: number;
+    @Prop({type: mongoose.Schema.Types.ObjectId, ref: 'Album'})
+    album: Album;
 
     @Prop()
     listens_count: number;
 
     @Prop()
-    cover_url: number;
+    cover_url: string;
 
     @Prop()
     audio_url: string;
