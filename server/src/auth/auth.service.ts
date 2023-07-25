@@ -1,4 +1,4 @@
-import {Body, HttpException, HttpStatus, Injectable, Post, UnauthorizedException} from '@nestjs/common';
+import {HttpException, HttpStatus, Injectable, Post, UnauthorizedException} from '@nestjs/common';
 import {UserDto} from "../User/dto/user.dto";
 import {userService} from "../User/user.service";
 import {JwtService} from "@nestjs/jwt";
@@ -44,5 +44,9 @@ export class AuthService {
             }
         }
         throw new UnauthorizedException({message: "Incorrect email or password"})
+    }
+
+    async checkAuth(user: any){
+        return this.generateToken(user)
     }
 }
