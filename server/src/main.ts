@@ -11,6 +11,7 @@ const start = async () =>{
             .setTitle('MusicTS')
             .setDescription('Doc MusicTS')
             .setVersion('1.0.0')
+            .addBearerAuth()
             .addTag('pan1ca')
             .build()
         const document =  SwaggerModule.createDocument(app, config)
