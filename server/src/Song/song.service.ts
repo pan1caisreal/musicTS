@@ -33,6 +33,8 @@ export class SongService{
 
     async delete(id: ObjectId):Promise<Song>{
         const track = await this.songModel.findByIdAndDelete(id)
+        this.fileService.removeFile(track.cover_url)
+        this.fileService.removeFile(track.audio_url)
         return track
     }
 

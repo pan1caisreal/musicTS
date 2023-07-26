@@ -28,6 +28,22 @@ export class FileService{
     }
 
     removeFile(filename: string){
-
+        try {
+            const fileName = filename.split('/')[1]
+            const type = filename.split('/')[0]
+            const filePath =  path.resolve(__dirname, '..', 'static', type, fileName)
+            if(fs.existsSync(filePath)) {
+                const fileStats = fs.statSync(filePath)
+                if(fileStats.isFile()){
+                    fs.unlinkSync(filePath)
+                }else{
+                    throw new Error('Not a File. Unable to remove.')
+                }
+            }else{
+                throw new Error('File not Found. Unable to remove')
+            }
+        }catch (e) {
+            throw new HttpException(e.message, HttpStatus.BAD_REQUEST)
+        }
     }
 }
