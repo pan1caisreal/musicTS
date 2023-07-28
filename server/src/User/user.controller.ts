@@ -9,8 +9,7 @@ import {User} from "./user.schema";
 
 export class userController{
 
-    constructor(private userService: userService) {
-    }
+    constructor(private userService: userService) {}
     @ApiOperation({summary:'Create user'})
     @ApiResponse({status: 200, type: User})
     @Post()

@@ -9,6 +9,7 @@ import * as path from 'path'
 import {AlbumModule} from "./Album/album.module";
 import {PlaylistModule} from "./PlayList/playlist.module";
 import {PlaylistSongModule} from "./PlayListSong/playlistSong.module";
+import {LikeModule} from "./Like/like.module";
 
 @Module({
     imports: [
@@ -21,6 +22,7 @@ import {PlaylistSongModule} from "./PlayListSong/playlistSong.module";
         AlbumModule,
         PlaylistModule,
         PlaylistSongModule,
+        LikeModule,
     ]
 })
 

@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import {HydratedDocument, ObjectId} from 'mongoose';
 import {ApiProperty} from "@nestjs/swagger";
 
 export type UserDocument = HydratedDocument<User>;
@@ -21,6 +21,8 @@ export class User {
     @ApiProperty({example: "default date", description: "register_date"})
     @Prop({default: Date.now })
     registration_date: Date;
+
+    id: ObjectId;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
