@@ -1,4 +1,4 @@
-import {Injectable} from "@nestjs/common";
+import {Injectable, NotFoundException} from "@nestjs/common";
 import {InjectModel} from "@nestjs/mongoose";
 import {Song, SongDocument} from "./song.schema";
 import {Model, ObjectId} from "mongoose";
@@ -22,7 +22,7 @@ export class SongService{
     }
 
     async getAll(count = 10, offset = 0):Promise<Song[]>{
-        const tracks = await this.songModel.find().skip(offset).limit(count )
+        const tracks = await this.songModel.find().skip(offset).limit(count)
         return tracks
     }
 
@@ -49,6 +49,14 @@ export class SongService{
         const tracks = await this.songModel.find({
             title:{$regex: new RegExp(query,'i')}
         })
+        return tracks
+    }
+
+    async getSongsByAlbum(id: ObjectId):Promise<Song[]> {
+        const tracks = await this.songModel.find({album: id})
+        if(tracks.length === 0){
+            throw new NotFoundException('Songs for the specified album were not found.')
+        }
         return tracks
     }
 }

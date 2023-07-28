@@ -48,4 +48,10 @@ export class SongController{
     listen(@Param('id') id:ObjectId){
         return this.songService.listen(id)
     }
+
+    @Get('/AlbumSong/:id')
+    @ApiParam({name: "id", description: "id of the album", type: String})
+    getSongsByAlbum(@Param('id') id:ObjectId){
+        return this.songService.getSongsByAlbum(id)
+    }
 }

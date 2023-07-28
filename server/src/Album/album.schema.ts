@@ -12,7 +12,7 @@ export class Album {
     artist: string;
 
     @Prop()
-    release_date: number;
+    release_date: Date;
 
     @Prop()
     cover_url: string;
