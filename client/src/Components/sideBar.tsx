@@ -13,7 +13,7 @@ const Sidebar: React.FC<SidebarProps> = ({ items }) => {
                 {items.map((item, index) => (
                     <li key={index}>
                         <span className="material-symbols-outlined">{item.icon}</span>
-                        {item.text}
+                        <div className="TextMenu">{item.text}</div>
                     </li>
                 ))}
             </ul>

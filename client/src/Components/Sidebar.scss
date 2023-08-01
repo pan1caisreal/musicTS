@@ -35,3 +35,18 @@ li {
     transition: 0.5s;
   }
 }
+
+@media (max-width: 600px) {
+  .TextMenu{
+      display: none;
+  }
+  .material-symbols-outlined{
+
+  }
+
+  .sidebar{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+  }
+}
