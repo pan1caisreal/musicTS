@@ -1,3 +1,5 @@
+@import "var";
+
 .sidebar {
   width: 200px;
   height: 100vh;
@@ -18,10 +20,9 @@ ul {
 }
 
 li {
-  color: rgb(153,153,153);
-  font-family: 'REM', sans-serif;
+  color: $main_color;
   padding: 10px;
-  transition: 0.5s;
+  transition: $transition_time;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -31,8 +32,8 @@ li {
   }
 
   &:hover{
-    color: #ffffff;
-    transition: 0.5s;
+    color: $hover_color;
+    transition: $transition_time;
   }
 }
 
@@ -40,10 +41,6 @@ li {
   .TextMenu{
       display: none;
   }
-  .material-symbols-outlined{
-
-  }
-
   .sidebar{
     width: 100px;
     display: flex;

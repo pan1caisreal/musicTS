@@ -1,5 +1,5 @@
 import React from 'react';
-import './Sidebar.scss';
+import '../styles/main.scss';
 
 type SidebarProps = {
     items: {text: string; icon: string}[]
