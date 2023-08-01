@@ -1,0 +1,37 @@
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.material-symbols-outlined{
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+li {
+  color: rgb(153,153,153);
+  font-family: 'REM', sans-serif;
+  padding: 10px;
+  transition: 0.5s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  &:last-child {
+    border-bottom: 1px solid #ccc;
+  }
+
+  &:hover{
+    color: #ffffff;
+    transition: 0.5s;
+  }
+}
