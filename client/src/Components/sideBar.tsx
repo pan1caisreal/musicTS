@@ -8,7 +8,7 @@ type SidebarProps = {
 const Sidebar: React.FC<SidebarProps> = ({ items }) => {
 
     return (
-        <div className="sidebar open">
+        <div className="sidebar">
             <ul>
                 {items.map((item, index) => (
                     <li key={index}>
