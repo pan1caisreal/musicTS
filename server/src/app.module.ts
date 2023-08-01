@@ -10,6 +10,7 @@ import {AlbumModule} from "./Album/album.module";
 import {PlaylistModule} from "./PlayList/playlist.module";
 import {PlaylistSongModule} from "./PlayListSong/playlistSong.module";
 import {LikeModule} from "./Like/like.module";
+import {spotifyModule} from "./SpotifyApi/spotify.module";
 
 @Module({
     imports: [
@@ -23,6 +24,7 @@ import {LikeModule} from "./Like/like.module";
         PlaylistModule,
         PlaylistSongModule,
         LikeModule,
+        spotifyModule,
     ]
 })
 
