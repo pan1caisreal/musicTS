@@ -8,5 +8,9 @@
   "Logout": "Logout",
   "Login": "Login",
   "Registration": "Registration",
-  "About": "About us"
+  "About": "About us",
+  "Email": "Email",
+  "Password": "Password",
+  "Invalid email address": "Invalid email address",
+  "Invalid password": "Password must be at least 8 characters long"
 }

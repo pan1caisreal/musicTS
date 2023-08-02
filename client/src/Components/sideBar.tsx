@@ -15,7 +15,6 @@ const Sidebar = () => {
         { path:"/LikeSong",text: t('LikeSong'), icon: 'library_music' },
         { path:"/MyPlaylists",text: t('MyPlaylists'), icon: 'queue_music' },
         { path:"/LikeAlbum",text: t('LikeAlbum'), icon: 'album' },
-        // { text: t('Logout'), icon: 'logout' }
     ];
 
     const menuItemNotAuth = [
@@ -43,6 +42,12 @@ const Sidebar = () => {
                             </li>
                         ))
                     )
+                }
+                {isAuth &&
+                    <li>
+                        <span className="material-symbols-outlined">logout</span>
+                        <div className="TextMenu">{t("Logout")}</div>
+                    </li>
                 }
                 <li>
                     <LanguageSwitcher />

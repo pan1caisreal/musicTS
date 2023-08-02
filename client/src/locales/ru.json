@@ -6,7 +6,11 @@
   "LikeAlbum": "Любимые альбомы",
   "Search": "Поиск",
   "Logout": "Выйти",
-  "Login": "Войти",
+  "Login": "Авторизация",
   "Registration": "Регистрация",
-  "About": "О нас"
+  "About": "О нас",
+  "Email": "Почта",
+  "Password": "Пароль",
+  "Invalid email address": "Неправильный адресс электронной почты",
+  "Invalid password": "Пароль должен быть не меньше 8 символов"
 }
