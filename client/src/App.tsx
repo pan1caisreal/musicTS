@@ -1,26 +1,26 @@
 import React from 'react';
 import Sidebar from "./Components/sideBar";
+import {useTranslation} from "react-i18next"
 
 const App = () => {
-
     const isAuth = false;
-
+    const {t} = useTranslation()
     const menuItemAuth = [
-        {text: "MusicTs", icon: "play_circle"},
-        {text: 'Profile', icon: 'account_circle'},
-        {text: 'Like Song', icon: 'library_music'},
-        {text: 'My playlists', icon: 'queue_music'},
-        {text: 'Like Album', icon: 'album'},
-        {text: 'Search',icon: 'search'},
-        {text: 'Logout', icon: 'logout'}
-    ]
+        { text: t('musicTs'), icon: 'play_circle' },
+        { text: t('Profile'), icon: 'account_circle' },
+        { text: t('LikeSong'), icon: 'library_music' },
+        { text: t('MyPlaylists'), icon: 'queue_music' },
+        { text: t('LikeAlbum'), icon: 'album' },
+        { text: t('Search'), icon: 'search' },
+        { text: t('Logout'), icon: 'logout' }
+    ];
 
     const menuItemNotAuth = [
-        {text: "MusicTs", icon: "play_circle"},
-        {text: 'Login', icon: 'account_circle'},
-        {text: 'Registration', icon: 'person_add'},
-        {text: 'About us', icon: 'info'}
-    ]
+        { text: t('musicTs'), icon: 'play_circle' },
+        { text: t('Login'), icon: 'account_circle' },
+        { text: t('Registration'), icon: 'person_add' },
+        { text: t('About'), icon: 'info' }
+    ];
   return (
       <div>
           {isAuth ? (

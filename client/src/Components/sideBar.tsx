@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/main.scss';
+import LanguageSwitcher from "./LanguageSwitcher";
 
 type SidebarProps = {
     items: {text: string; icon: string}[]
@@ -16,6 +17,9 @@ const Sidebar: React.FC<SidebarProps> = ({ items }) => {
                         <div className="TextMenu">{item.text}</div>
                     </li>
                 ))}
+                <li>
+                    <LanguageSwitcher />
+                </li>
             </ul>
         </div>
     );
