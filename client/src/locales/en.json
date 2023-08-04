@@ -12,5 +12,9 @@
   "Email": "Email",
   "Password": "Password",
   "Invalid email address": "Invalid email address",
-  "Invalid password": "Password must be at least 8 characters long"
+  "Invalid password": "Password must be at least 8 characters long",
+  "Username": "Username",
+  "Invalid verify": "Passwords don't match",
+  "VerifyPassword": "Verify password",
+  "LoginError": "Enter the user name"
 }
