@@ -60,7 +60,7 @@ const Login = () => {
             setEmailError("Invalid email address")
         }
         if(password.length === 0){
-            setEmailError("Invalid password")
+            setPasswordError("Invalid password")
         }
     }
 
