@@ -16,5 +16,7 @@
   "Username": "Username",
   "Invalid verify": "Passwords don't match",
   "VerifyPassword": "Verify password",
-  "LoginError": "Enter the user name"
+  "LoginError": "Enter the user name",
+  "404": "Page not Found",
+  "Oops": "Oops"
 }
