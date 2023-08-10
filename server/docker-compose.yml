@@ -1,0 +1,26 @@
+version: '3.0 '
+
+services:
+  main:
+    container_name: main
+    build: .
+    working_dir: /app
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 5000:5000
+      - 9229:9229
+    command: npm run start:dev
+    depends_on:
+      - mongo
+    restart: always
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: pan1ca_danya
+      MONGO_INITDB_ROOT_PASSWORD: 95143961597758
