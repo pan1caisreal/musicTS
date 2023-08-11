@@ -1,14 +1,35 @@
 import React, {useState} from 'react';
 import '../styles/main.scss'
 import {useTranslation} from "react-i18next";
+import {LoginUser} from "../http/AuthApi";
+import {useAppDispatch} from "../hooks/redux";
+import {setUser} from "../store/reducers/UserSlice";
+import {useNavigate} from "react-router-dom";
+
 
 
 const Login = () => {
+    const dispatch = useAppDispatch()
+    const navigate = useNavigate()
+    // const {user} = useAppSelector(state => state.userReducer)
     const {t} = useTranslation()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [emailError, setEmailError] = useState("")
     const [passwordError, setPasswordError] = useState("")
+
+    const loginUser = () =>{
+        if(passwordError.length === 0 && emailError.length === 0){
+            LoginUser(email, password).then((data) => {
+                if(data !== null) {
+                    dispatch(setUser(data))
+                    navigate('/')
+                }
+                else
+                    alert("Incorrect email or password")
+            })
+        }
+    }
 
     const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) =>{
         const newEmail = e.target.value
@@ -62,7 +83,7 @@ const Login = () => {
                     className="Button"
                     disabled={emailError.length > 0 || passwordError.length > 0}
                     type="submit"
-                    onClick={() => console.log("213")}
+                    onClick={loginUser}
                 >
                     {t("Login")}
                 </button>

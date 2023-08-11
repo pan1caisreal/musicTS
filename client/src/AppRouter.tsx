@@ -2,12 +2,13 @@ import React from 'react';
 import { AuthRoutes, routes } from "./routes";
 import { Routes, Route} from "react-router-dom";
 import Page404 from "./pages/Page404";
+import {useAppSelector} from "./hooks/redux";
 
 const AppRouter = () => {
-    const user = false;
+    const {isAuth} = useAppSelector(state => state.userReducer)
     return (
         <Routes>
-            {!user ? routes.map(({ path, Component }, index) => (
+            {!isAuth ? routes.map(({ path, Component }, index) => (
                 <Route path={path} element={<Component />} key={index} />
             )) : AuthRoutes.map(({ path, Component }, index) => (
                 <Route path={path} element={<Component />} key={index} />

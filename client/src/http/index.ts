@@ -1,11 +1,11 @@
 import axios, {AxiosInstance, InternalAxiosRequestConfig} from 'axios'
 
 const Api:AxiosInstance  = axios.create({
-    baseURL: "http://localhost:5000/api/"
+    baseURL: "http://localhost:5000/"
 })
 
 const authApi:AxiosInstance  = axios.create({
-    baseURL: "http://localhost:5000/api/"
+    baseURL: "http://localhost:5000/"
 })
 
 const authInterceptor = (config: InternalAxiosRequestConfig) =>{

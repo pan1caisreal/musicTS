@@ -1,9 +1,15 @@
 import React, {useState} from 'react';
 import '../styles/main.scss'
 import {useTranslation} from "react-i18next";
+import {Registration} from "../http/AuthApi";
+import {useAppDispatch} from "../hooks/redux";
+import {setUser} from "../store/reducers/UserSlice";
+import {useNavigate} from "react-router-dom";
 
 
 const Login = () => {
+    const dispatch = useAppDispatch()
+    const navigate = useNavigate()
     const {t} = useTranslation()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -61,6 +67,17 @@ const Login = () => {
         }
         if(password.length === 0){
             setPasswordError("Invalid password")
+        }
+        if(passwordError.length === 0 && emailError.length === 0 && loginError.length === 0){
+            Registration(login, email, password).then((data) => {
+                if(data !== null)
+                {
+                    dispatch(setUser(data))
+                    navigate('/')
+                }
+                else
+                    alert("User with this email already exists")
+            })
         }
     }
 

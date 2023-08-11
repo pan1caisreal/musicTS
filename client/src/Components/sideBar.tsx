@@ -3,10 +3,13 @@ import '../styles/main.scss';
 import LanguageSwitcher from "./LanguageSwitcher";
 import {useTranslation} from "react-i18next";
 import {useNavigate} from "react-router-dom";
+import {useAppDispatch, useAppSelector} from "../hooks/redux";
+import {logoutUser} from "../store/reducers/UserSlice";
 
 
 const Sidebar = () => {
-    const isAuth = false
+    const {isAuth} = useAppSelector(state => state.userReducer)
+    const dispatch = useAppDispatch()
     const navigate = useNavigate()
     const {t} = useTranslation()
     const menuItemAuth = [
@@ -23,6 +26,13 @@ const Sidebar = () => {
         { path:"/Registration",text: t('Registration'), icon: 'person_add' },
         { path:"/About",text: t('About'), icon: 'info' }
     ];
+
+    const Logout = () =>{
+        dispatch(logoutUser())
+        localStorage.removeItem('token')
+        navigate('/')
+    }
+
     return (
         <div className="sidebar">
             <ul>
@@ -44,7 +54,9 @@ const Sidebar = () => {
                     )
                 }
                 {isAuth &&
-                    <li>
+                    <li
+                        onClick={Logout}
+                    >
                         <span className="material-symbols-outlined">logout</span>
                         <div className="TextMenu">{t("Logout")}</div>
                     </li>
