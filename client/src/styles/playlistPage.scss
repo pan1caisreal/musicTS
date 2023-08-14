@@ -1,0 +1,75 @@
+.playlistPage{
+  width: calc(100% - 200px);
+  margin-left: 200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  img:hover{
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+.playlistHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.playlistCover {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.playlistDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.playlistTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.playlistOwner {
+  color: #888;
+  font-size: 14px;
+}
+
+.image-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.image-modal-content {
+  max-width: 60%;
+  max-height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-modal-content img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}

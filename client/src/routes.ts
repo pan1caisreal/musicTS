@@ -6,6 +6,7 @@ import Profile from "./pages/Profile";
 import LikeSong from "./pages/LikeSong";
 import MyPlayLists from "./pages/MyPlayLists";
 import LikeAlbum from "./pages/LikeAlbum";
+import PlayListPage from "./pages/PlayListPage";
 
 export const routes = [
     {
@@ -23,6 +24,10 @@ export const routes = [
     {
         path: '/About',
         Component: About
+    },
+    {
+        path: '/playlist/:playlistId',
+        Component: PlayListPage
     }
 ]
 
