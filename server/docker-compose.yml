@@ -3,6 +3,7 @@ version: '3.0 '
 services:
   main:
     container_name: main
+    build: .
     image: server-main:latest
     working_dir: /app
     env_file:
