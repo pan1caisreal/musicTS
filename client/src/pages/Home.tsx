@@ -3,7 +3,7 @@ import {useAppSelector} from "../hooks/redux";
 import PlaylistMusicTs from "../Components/playlistMusicTs";
 
 const Home = () => {
-    const {isAuth} = useAppSelector(state => state.userReducer)
+    const {isAuth} = useAppSelector(state => state.user)
     return (
         <div>
             {!isAuth ?

@@ -1,8 +1,24 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import {Slider} from "@mui/material";
 import {useTheme} from "@mui/material/styles";
 
-const Volume = () => {
+type VolumeProps = {
+    left: number,
+    right: number,
+    onChangeValue: (e : ChangeEvent<HTMLInputElement>) => void
+}
+
+
+const Volume : React.FC<VolumeProps> =
+    ({
+        left,right,onChangeValue
+    }) => {
+    const handleChange = (event: Event, value: number | number[]) =>{
+        if(typeof value === 'number'){
+            const fakeEvent = {target: {value: value.toString()}} as React.ChangeEvent<HTMLInputElement>
+            onChangeValue(fakeEvent)
+        }
+    }
     const theme = useTheme();
     const sliderStyles = {
         width: '80px',
@@ -32,6 +48,10 @@ const Volume = () => {
             <Slider
                 aria-label="Volume"
                 defaultValue={50}
+                min={0}
+                value={left}
+                max={right}
+                onChange={handleChange}
                 sx={{
                     ...sliderStyles,
                     color:theme.palette.mode === 'dark' ? '#fff' : 'rgba(0,0,0,0.87)',

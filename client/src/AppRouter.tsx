@@ -5,7 +5,7 @@ import Page404 from "./pages/Page404";
 import {useAppSelector} from "./hooks/redux";
 
 const AppRouter = () => {
-    const {isAuth} = useAppSelector(state => state.userReducer)
+    const {isAuth} = useAppSelector(state => state.user)
     return (
         <Routes>
             {!isAuth ? routes.map(({ path, Component }, index) => (

@@ -32,7 +32,7 @@ const PlayListPage = () => {
                 )}
             </div>
             {playlist?.songs.map((track, index) =>(
-                <div key={index} className="playlist_track">
+                <div key={index} className="playlist_track" onClick={() => console.log(track)}>
                     <div className="track_image_container">
                         <img src={`http://localhost:5000/${track.cover_url}`} alt={"track_cover"} className="track_image"/>
                         <div className="play_icon">&#9654;</div>

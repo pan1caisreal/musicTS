@@ -8,7 +8,7 @@ import {logoutUser} from "../store/reducers/UserSlice";
 
 
 const Sidebar = () => {
-    const {isAuth} = useAppSelector(state => state.userReducer)
+    const {isAuth} = useAppSelector(state => state.user)
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
     const {t} = useTranslation()
