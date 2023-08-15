@@ -1,0 +1,56 @@
+.player{
+  display: flex;
+  bottom: 0;
+  margin-left: 200px;
+  align-items: center;
+  height: 60px;
+  position: fixed;
+  background-color: rgb(44,44,44);
+  width: calc(100% - 220px);
+  justify-content: center;
+  opacity: 50%;
+  border-radius: 7px;
+}
+
+.PlayButton{
+  color: rgb(117,121,116);
+  cursor: pointer;
+
+  :hover{
+    color: rgb(220,222,220)
+  }
+}
+
+.volume{
+  display: flex;
+  margin-left: 100px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.player_element{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+  width: 100%;
+}
+
+.inputRange {
+  display: flex;
+  align-items: center;
+  width: 800px;
+  margin-left: 100px;
+}
+
+.volumeInputContainer{
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.volumeIcon{
+  display: flex;
+  margin-right: 10px;
+}

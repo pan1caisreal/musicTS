@@ -6,13 +6,13 @@
   flex-direction: column;
   align-items: center;
 
-  img{
+  .playlist_image{
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  img:hover{
+  .playlist_image:hover{
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
@@ -72,4 +72,61 @@
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+}
+
+.track_image_container {
+  position: relative;
+}
+
+.track_image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.play_icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.track_image_container:hover .play_icon {
+  opacity: 1;
+}
+
+.playlist_track{
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  background-color: black;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  width: 300px;
+}
+
+.track_title{
+  margin-left: 10px;
+}
+
+.track_details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.track_artist{
+  font-size: 14px;
+  color: white;
+  padding-left: 10px;
 }

@@ -5,6 +5,8 @@ import AppRouter from "./AppRouter";
 import {checkAuth} from "./http/AuthApi";
 import {useAppDispatch} from "./hooks/redux";
 import {setUser} from "./store/reducers/UserSlice";
+import Player from "./Components/Player";
+import MusicPlayerSlider from "./Components/test";
 
 const App = () => {
     const dispatch = useAppDispatch()
@@ -20,6 +22,7 @@ const App = () => {
           <div className="app">
               <AppRouter />
           </div>
+          <Player />
       </BrowserRouter>
   );
 };
