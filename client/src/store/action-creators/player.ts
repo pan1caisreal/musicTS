@@ -19,3 +19,15 @@ export const SetVolumeTrack = (payload: number): PlayerAction =>{
 export const SetCurrentTimeTrack = (payload: number): PlayerAction =>{
     return {type: PlayerActionTypes.SET_CURRENT_TIME, payload}
 }
+
+export const SetPlaylist = (payload: ISong[]) : PlayerAction =>{
+    return {type: PlayerActionTypes.SET_PLAYLIST, payload}
+}
+
+export const NextTrack = (payload: ISong) : PlayerAction =>{
+    return {type: PlayerActionTypes.NEXT_TRACK, payload}
+}
+
+export const PreviousTrack = (payload: ISong) : PlayerAction =>{
+    return {type: PlayerActionTypes.PREVIOUS_TRACK, payload}
+}

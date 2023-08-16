@@ -5,7 +5,10 @@ export interface PlayerState{
     volume: number;
     duration: number;
     currentTime: number;
-    pause: boolean
+    pause: boolean;
+    playlist: null | ISong[];
+    nextTrack: ISong | null;
+    previousTrack: ISong | null;
 }
 
 export enum PlayerActionTypes{
@@ -14,7 +17,10 @@ export enum PlayerActionTypes{
     SET_ACTIVE = "SET_ACTIVE",
     SET_DURATION = "SET_DURATION",
     SET_CURRENT_TIME = "SET_CURRENT_TIME",
-    SET_VOLUME = "SET_VOLUME"
+    SET_VOLUME = "SET_VOLUME",
+    SET_PLAYLIST = "SET_PLAYLIST",
+    NEXT_TRACK = "NEXT_TRACK",
+    PREVIOUS_TRACK = "PREVIOUS_TRACK",
 }
 
 interface PlayAction {
@@ -28,6 +34,11 @@ interface PauseAction {
 interface SetActiveAction {
     type: PlayerActionTypes.SET_ACTIVE
     payload: ISong
+}
+
+interface SetPlaylist {
+    type: PlayerActionTypes.SET_PLAYLIST
+    payload: ISong[]
 }
 
 interface SetDurationAction {
@@ -45,10 +56,23 @@ interface SetCurrentTimeAction {
     payload: number
 }
 
+interface NextTrack {
+    type: PlayerActionTypes.NEXT_TRACK
+    payload: ISong
+}
+
+interface PreviousTrack {
+    type: PlayerActionTypes.PREVIOUS_TRACK
+    payload: ISong
+}
+
 export type PlayerAction =
     PlayAction |
     PauseAction |
     SetActiveAction |
     SetCurrentTimeAction |
     SetVolumeAction |
-    SetDurationAction
+    SetDurationAction |
+    SetPlaylist |
+    NextTrack |
+    PreviousTrack

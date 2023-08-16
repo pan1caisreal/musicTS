@@ -54,7 +54,7 @@ const Volume : React.FC<VolumeProps> =
                 onChange={handleChange}
                 sx={{
                     ...sliderStyles,
-                    color:theme.palette.mode === 'dark' ? '#fff' : 'rgba(0,0,0,0.87)',
+                    color:theme.palette.mode === 'light' ? '#fff' : 'rgba(0,0,0,0.87)',
                 }}
             />
         </div>

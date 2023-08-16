@@ -2,19 +2,31 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import ImageModal from "../Components/ImageModal";
 import {GetOneByIdPlaylist} from "../http/PlaylistApi";
-import {IPlaylist} from "../models/IPlaylist";
+import {IPlaylist, ISong} from "../models/IPlaylist";
 import '../styles/main.scss'
+import {useActions} from "../hooks/redux";
 
 const PlayListPage = () => {
     const {playlistId} = useParams()
     const [playlist, setPlaylist] = useState<IPlaylist>()
+    const {SetPlaylist} = useActions()
     const [showModal, setShowModal] = useState(false)
     useEffect(() =>{
-        if(playlistId !== undefined)
-            GetOneByIdPlaylist(playlistId).then((data) => setPlaylist(data))
+        if(playlistId !== undefined){
+            GetOneByIdPlaylist(playlistId).then((data) => {
+                setPlaylist(data)
+            })
+        }
     },[])
     const toggleModal = () =>{
         setShowModal(!showModal)
+    }
+
+    const {playTrack, pauseTrack, SetActiveTrack} = useActions()
+
+    const play = (track: ISong) =>{
+        SetActiveTrack(track)
+        playTrack()
     }
 
     return (
@@ -32,7 +44,10 @@ const PlayListPage = () => {
                 )}
             </div>
             {playlist?.songs.map((track, index) =>(
-                <div key={index} className="playlist_track" onClick={() => console.log(track)}>
+                <div key={index} className="playlist_track" onClick={() => {
+                    play(track)
+                    SetPlaylist(playlist?.songs)
+                }}>
                     <div className="track_image_container">
                         <img src={`http://localhost:5000/${track.cover_url}`} alt={"track_cover"} className="track_image"/>
                         <div className="play_icon">&#9654;</div>

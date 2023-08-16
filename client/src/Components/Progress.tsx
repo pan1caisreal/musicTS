@@ -1,7 +1,8 @@
 import React, {ChangeEvent} from 'react';
 import styles from '../styles/player.module.scss'
 import Slider from "@mui/material/Slider";
-import {useTheme} from "@mui/material/styles";
+import {useTheme, styled} from "@mui/material/styles";
+import {Box, Typography} from "@mui/material";
 type ProgressProps = {
     left: number;
     right: number;
@@ -34,24 +35,53 @@ const Progress: React.FC<ProgressProps> =
                 opacity: 0.28,
             },
         };
-    const theme = useTheme();
-    const duration = 200;
-    const [position, setPosition] = React.useState(32);
+        const handleChange = (event: Event, value: number | number[]) =>{
+            if(typeof value === 'number'){
+                const fakeEvent = {target: {value: value.toString()}} as React.ChangeEvent<HTMLInputElement>
+                onChange(fakeEvent)
+            }
+        }
+        const theme = useTheme();
+
+        const TinyText = styled(Typography)({
+            fontSize: '0.75rem',
+            opacity: 0.38,
+            fontWeight: 500,
+            letterSpacing: 0.2,
+        });
+
+        const formatDuration = (value:number) =>{
+            const minute = Math.floor(value / 60)
+            const secondLeft = value - minute * 60
+            return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`
+        }
+
     return (
         <div className={styles.inputRange}>
             <Slider
                 aria-label="time-indicator"
                 size="small"
-                value={position}
+                value={left}
                 min={0}
-                step={1}
-                max={duration}
-                onChange={(_, value) => setPosition(value as number)}
+                max={right}
+                onChange={handleChange}
                 sx={{
                     ...customSliderStyles,
-                    color:theme.palette.mode === 'dark' ? '#fff' : 'rgba(0,0,0,0.87)',
+                    color:theme.palette.mode === 'light' ? '#fff' : 'rgba(0,0,0,0.87)',
                 }}
             />
+            <Box
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    mt: -2,
+                }}
+                className={styles.duration}
+            >
+                <TinyText className={styles.durationText}>{formatDuration(left)}</TinyText>
+                <TinyText className={styles.durationText}>-{formatDuration(right - left)}</TinyText>
+            </Box>
         </div>
     );
 };
