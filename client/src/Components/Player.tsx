@@ -1,13 +1,13 @@
 import React, {useEffect, useRef, useState} from 'react';
 import styles from '../styles/player.module.scss'
-import {IconButton} from "@material-ui/core";
+import {IconButton} from "@mui/material";
 import {
     PauseRounded,
     PlayArrowRounded,
     SkipNextRounded,
     SkipPreviousRounded, VolumeDownRounded, VolumeOffRounded,
     VolumeUpRounded
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 import Progress from "./Progress";
 import Volume from "./Volume";
 import {useActions, useAppSelector} from "../hooks/redux";

@@ -18,3 +18,14 @@ export interface ISong{
     __v: string
 
 }
+
+
+export interface IAlbum{
+    _id: string,
+    title: string,
+    artist: string,
+    release_date: Date,
+    cover_url: string,
+    __v: string,
+    color: number[],
+}

@@ -7,6 +7,8 @@ import LikeSong from "./pages/LikeSong";
 import MyPlayLists from "./pages/MyPlayLists";
 import LikeAlbum from "./pages/LikeAlbum";
 import PlayListPage from "./pages/PlayListPage";
+import Playlist from "./Components/Playlist";
+import AlbumPage from "./pages/AlbumPage";
 
 export const routes = [
     {
@@ -52,4 +54,12 @@ export const AuthRoutes = [
         path: '/LikeAlbum',
         Component: LikeAlbum
     },
+    {
+        path: '/Genre/:genre',
+        Component: Playlist
+    },
+    {
+        path: 'album/:albumId',
+        Component: AlbumPage
+    }
 ]

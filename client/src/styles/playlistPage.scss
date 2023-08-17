@@ -1,10 +1,11 @@
 .playlistPage{
   width: calc(100% - 200px);
-  margin-left: 200px;
+  margin-left: 180px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 
   .playlist_image{
     width: 100%;
@@ -21,11 +22,16 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  width: calc(100% - 50px);
+  height: 35vh;
+  border-radius: 10px;
 }
 
 .playlistCover {
-  width: 100px;
-  height: 100px;
+  display: flex;
+  margin-left: 70px;
+  width: 200px;
+  height: 200px;
   margin-right: 20px;
   border-radius: 4px;
   overflow: hidden;
@@ -37,14 +43,22 @@
 }
 
 .playlistTitle {
-  font-size: 24px;
+  font-size: 66px;
+  text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 8px;
 }
 
 .playlistOwner {
-  color: #888;
-  font-size: 14px;
+  color: white;
+  font-size: 24px;
+}
+
+.albumInfo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .image-modal-overlay {
@@ -76,6 +90,18 @@
 
 .track_image_container {
   position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.track_number{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+  padding-right: 10px ;
 }
 
 .track_image {
@@ -113,6 +139,7 @@
   margin-bottom: 10px;
   cursor: pointer;
   width: 300px;
+  transition: 0.3s;
 }
 
 .track_title{
@@ -129,4 +156,17 @@
   font-size: 14px;
   color: white;
   padding-left: 10px;
+}
+
+.favorite{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  //color: red;
+}
+
+.track_container{
+  background: rgb(63,94,251);
+  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
 }

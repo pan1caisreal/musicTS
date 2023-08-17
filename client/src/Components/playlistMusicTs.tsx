@@ -20,7 +20,6 @@ const PlaylistMusicTs = () => {
                     <Link key={playlist._id} className="playlist_card" to={`playlist/${playlist._id}`}>
                         <div className="card_image_container">
                             <img src={'http://localhost:5000/playlist/' + playlist.cover_url} alt={playlist.cover_url} className="card_image" />
-                            {/*<div className="play_icon">&#9654;</div>*/}
                         </div>
                         {playlist.title}
                     </Link>
