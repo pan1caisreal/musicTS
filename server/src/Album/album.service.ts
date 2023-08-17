@@ -4,7 +4,8 @@ import {InjectModel} from "@nestjs/mongoose";
 import {Album, AlbumDocument} from "./album.schema";
 import {Model, ObjectId} from "mongoose";
 import {FileService, FileType} from "../files/file.service";
-
+import {getColorFromURL} from 'color-thief-node'
+import * as path from 'path'
 
 @Injectable()
 
@@ -26,6 +27,10 @@ export class AlbumService{
 
     async getOne(id: ObjectId) : Promise<Album> {
         const album = await this.albumModel.findById(id)
+        const filepath = path.resolve(__dirname, '..', '..', 'static', 'album', album.cover_url)
+        getColorFromURL(filepath)
+            .then(color => album.color = color)
+            .catch(err => console.log(err))
         return album
     }
 

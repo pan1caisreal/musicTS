@@ -39,6 +39,9 @@ export class Song {
     @ApiProperty({example: 'audio_url', description:"audio"})
     @Prop()
     audio_url: string;
+
+    @Prop()
+    color: number[];
 }
 
 export const SongSchema = SchemaFactory.createForClass(Song);

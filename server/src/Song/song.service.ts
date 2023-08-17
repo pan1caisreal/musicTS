@@ -4,7 +4,8 @@ import {Song, SongDocument} from "./song.schema";
 import {Model, ObjectId} from "mongoose";
 import {SongDto} from "./dto/song.dto";
 import {FileService, FileType} from "../files/file.service";
-import {Sign} from "crypto";
+import {getColorFromURL} from 'color-thief-node'
+import * as path from 'path'
 
 
 @Injectable()
@@ -28,6 +29,10 @@ export class SongService{
 
     async getOne(id:ObjectId):Promise<Song>{
         const track = await this.songModel.findById(id)
+        const filepath = path.resolve(__dirname, '..', '..', 'static', track.cover_url)
+        getColorFromURL(filepath)
+            .then(color => track.color = color)
+            .catch(err => console.log(err))
         return track
     }
 
