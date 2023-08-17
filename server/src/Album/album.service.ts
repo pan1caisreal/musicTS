@@ -34,4 +34,9 @@ export class AlbumService{
         this.fileService.deleteFileAlbum(album.cover_url)
         return album
     }
+
+    async getAlbumByGenre(genre: string) : Promise<Album[]> {
+        const albums = await this.albumModel.find({genre: genre})
+        return albums
+    }
 }

@@ -44,4 +44,11 @@ export class AlbumController{
     deleteAlbum(@Param('id') id:ObjectId){
         return this.albumService.delete(id)
     }
+
+    @Get('/genre/:genre')
+    @ApiOperation({summary:"get album by genre"})
+    @ApiParam({name: 'genre', description: 'name of genre', type: String})
+    getAlbumByGenre(@Param('genre') genre: string){
+        return this.albumService.getAlbumByGenre(genre)
+    }
 }

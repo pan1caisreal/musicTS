@@ -28,6 +28,10 @@ export class Song {
     @Prop()
     listens_count: number;
 
+    @ApiProperty({example: 'Rap', description:"genre"})
+    @Prop()
+    genre: string;
+
     @ApiProperty({example: 'cover_url', description:"picture"})
     @Prop()
     cover_url: string;

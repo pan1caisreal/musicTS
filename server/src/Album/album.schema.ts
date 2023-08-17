@@ -12,6 +12,9 @@ export class Album {
     artist: string;
 
     @Prop()
+    genre: string;
+
+    @Prop()
     release_date: Date;
 
     @Prop()
