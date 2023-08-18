@@ -21,7 +21,7 @@ export class Album {
     cover_url: string;
 
     @Prop()
-    color?: number[]
+    color?: number[][]
 }
 
 export const AlbumSchema = SchemaFactory.createForClass(Album);

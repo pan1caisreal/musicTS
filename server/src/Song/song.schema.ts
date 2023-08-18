@@ -41,7 +41,7 @@ export class Song {
     audio_url: string;
 
     @Prop()
-    color: number[];
+    color: number[][];
 
     @Prop()
     duration: string;
