@@ -42,6 +42,9 @@ export class Song {
 
     @Prop()
     color: number[];
+
+    @Prop()
+    duration: string;
 }
 
 export const SongSchema = SchemaFactory.createForClass(Song);
