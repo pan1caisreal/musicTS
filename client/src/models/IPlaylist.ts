@@ -15,7 +15,9 @@ export interface ISong{
     listens_count: number,
     cover_url: string,
     audio_url: string,
-    __v: string
+    __v: string,
+    color: number[],
+    duration: string
 
 }
 

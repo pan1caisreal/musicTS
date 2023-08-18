@@ -2,10 +2,12 @@
   width: calc(100% - 200px);
   margin-left: 180px;
   padding: 20px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
+  position: relative;
+  overflow-y: scroll;
 
   .playlist_image{
     width: 100%;
@@ -17,14 +19,17 @@
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
+
 }
 .playlistHeader {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
   width: calc(100% - 50px);
+  padding-top: 20px;
+  padding-bottom: 20px;
   height: 35vh;
-  border-radius: 10px;
+  border-radius: 10px 10px 0px 0px;
+  border-bottom: 1px solid #525151;
 }
 
 .playlistCover {
@@ -34,7 +39,6 @@
   height: 200px;
   margin-right: 20px;
   border-radius: 4px;
-  overflow: hidden;
 }
 
 .playlistDetails {
@@ -97,6 +101,7 @@
 }
 
 .track_number{
+  width: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,35 +116,19 @@
   border-radius: 5px;
 }
 
-.play_icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 14px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 5px;
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.track_image_container:hover .play_icon {
-  opacity: 1;
-}
-
 .playlist_track{
+  margin-top: 10px;
   display: flex;
   align-items: center;
-  border: 1px solid black;
-  background-color: black;
   border-radius: 20px;
   padding: 10px;
   margin-bottom: 10px;
   cursor: pointer;
-  width: 300px;
-  transition: 0.3s;
+  width: 90%;
+}
+
+.playlist_track:hover{
+  background-color: rgb(49,49,49);
 }
 
 .track_title{
@@ -163,10 +152,106 @@
   justify-content: center;
   align-items: center;
   margin-left: auto;
-  //color: red;
+  color: gray;
+}
+
+.favorite_like{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(30,215,96);
+
 }
 
 .track_container{
-  background: rgb(63,94,251);
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% - 50px);
+  border-radius: 0px 0px 10px 10px;
+}
+
+.InfoTrackContainer{
+  margin-top: 10px;
+  width: 100%;
+}
+
+.playAlbumIcon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(30,215,96);
+}
+
+
+.playIcon{
+  display: flex;
+  align-items: center;
+}
+
+.MoreFeature{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+}
+
+.AlbumInfoSongs{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+
+  .Info{
+    display: flex;
+    width: 90%;
+    height: 30px;
+    border-bottom: solid 0.5px gray;
+  }
+
+  .durationTrackIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    color: gray;
+  }
+
+  .TrackIndex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:gray;
+  }
+
+  .TrackTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    height: 20px;
+    margin-left: 50px;
+  }
+}
+
+.tracks{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+
+.track_duration{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+}
+
+.whitespace{
+  height: 100px;
+  margin-top: 100px;
+  font-size: 200px;
 }
