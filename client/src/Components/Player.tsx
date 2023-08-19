@@ -138,6 +138,21 @@ const Player = () => {
         SetVolumeTrack(Number(previousValue) * 100)
     }
 
+    if(pause){
+        if(audioRef.current)
+            audioRef.current.pause()
+    }
+
+    if(audioRef.current && !pause){
+        if(audioRef.current.paused){
+            audioRef.current.play().then(() => {
+                playTrack();
+            }).catch(error => {
+                console.error("Ошибка воспроизведения аудио:", error);
+            });
+        }
+    }
+
     if(!active){
         return null
     }

@@ -7,6 +7,7 @@ import '../styles/main.scss'
 import {useActions, useAppSelector} from "../hooks/redux";
 import dayjs from 'dayjs';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import PauseCircleIcon from '@mui/icons-material/PauseCircle';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import FavoriteRoundedIconLike from '@mui/icons-material/FavoriteRounded';
 import {IconButton} from "@mui/material";
@@ -24,7 +25,10 @@ const AlbumPage =  () => {
     const [like,setLike] = useState(false)
     const [hover,setHover] = useState<number | null>(null)
     const [playingIndex, setPlayingIndex] = useState<number | null>(null)
-    const {pause} = useAppSelector(state => state.player)
+    const {pause, active} = useAppSelector(state => state.player)
+    const [firstCLick, setFirstClick] = useState(false)
+    const [firstClickAlbum, setFirstAlbumClick] = useState(false)
+    const [activeAlbumId, setActiveAlbumId] = useState<string | null>(null)
     useEffect(() => {
         if (albumId) {
             GetAlbumById(albumId).then((data) => {
@@ -77,6 +81,34 @@ const AlbumPage =  () => {
         return '0:00'
     }
 
+    const playAlbum = () =>{
+        if(!firstClickAlbum){
+            setPlayingIndex(0)
+            if(albumId)
+                setActiveAlbumId(albumId)
+            if(albumSongs) {
+                SetPlaylist(albumSongs)
+                play(albumSongs[0])
+            }
+            setFirstAlbumClick(true)
+        }else{
+            if(activeAlbumId === albumId){
+                if(pause){
+                    playTrack()
+                }else{
+                    pauseTrack()
+                }
+            }else{
+                if(albumId)
+                    setActiveAlbumId(albumId)
+                if(albumSongs){
+                    SetPlaylist(albumSongs)
+                    play(albumSongs[0])
+                }
+            }
+        }
+    }
+
     return (
         <div className="playlistPage bottom-space">
             <div className="playlistHeader" style={gradientStyleHeader}>
@@ -99,8 +131,17 @@ const AlbumPage =  () => {
             <div className="track_container" style={gradientStyleBody}>
                 <div className="InfoTrackContainer">
                     <div className="playIcon">
-                        <IconButton>
-                            <PlayCircleIcon sx={{fontSize: 80}} className="playAlbumIcon"/>
+                        <IconButton onClick={playAlbum}>
+                            {activeAlbumId === albumId ? (
+                                pause ? (
+                                    <PlayCircleIcon sx={{fontSize: 80}} className="playAlbumIcon"/>
+                                ) : (
+                                    <PauseCircleIcon sx={{fontSize: 80}} className="playAlbumIcon"/>
+                                )
+                            ):(
+                                    <PlayCircleIcon sx={{fontSize: 80}} className="playAlbumIcon"/>
+                                )
+                            }
                         </IconButton>
                         <IconButton onClick={() => setLike(!like)}>
                             {!like ? (
@@ -131,9 +172,29 @@ const AlbumPage =  () => {
                             onMouseEnter={() => setHover(index)}
                             onMouseLeave={() => setHover(null)}
                             onClick={() => {
-                                play(track)
-                                SetPlaylist(albumSongs)
-                                setPlayingIndex(index)
+                                if(!firstCLick) {
+                                    play(track)
+                                    if(albumId)
+                                        setActiveAlbumId(albumId)
+                                    SetPlaylist(albumSongs)
+                                    setPlayingIndex(index)
+                                    setFirstClick(true)
+                                }else{
+                                    if(playingIndex === index){
+                                        if(pause){
+                                            playTrack()
+                                        }else{
+                                            pauseTrack()
+                                        }
+                                    }else{
+                                        if(albumId)
+                                            setActiveAlbumId(albumId)
+                                        play(track)
+                                        SetPlaylist(albumSongs)
+                                        setPlayingIndex(index)
+                                    }
+                                }
+
                             }}
                         >
                             <div className="track_image_container">
