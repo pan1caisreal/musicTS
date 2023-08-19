@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import ImageModal from "../Components/ImageModal";
 import {GetAlbumById, GetAlbumsSong} from "../http/PlaylistApi";
-import {IAlbum, IPlaylist, ISong} from "../models/IPlaylist";
+import {IAlbum, ISong} from "../models/IPlaylist";
 import '../styles/main.scss'
 import {useActions, useAppSelector} from "../hooks/redux";
 import dayjs from 'dayjs';
@@ -22,10 +22,10 @@ const AlbumPage =  () => {
     const [album, setAlbum] = useState<IAlbum>()
     const [albumSongs, setAlbumSongs] = useState<ISong[]>()
     const [colors, setColors] = useState<number[]>([])
-    const [like,setLike] = useState(false)
+    const [likeAlbum,setLikeAlbum] = useState(false)
     const [hover,setHover] = useState<number | null>(null)
     const [playingIndex, setPlayingIndex] = useState<number | null>(null)
-    const {pause, active} = useAppSelector(state => state.player)
+    const {pause} = useAppSelector(state => state.player)
     const [firstCLick, setFirstClick] = useState(false)
     const [firstClickAlbum, setFirstAlbumClick] = useState(false)
     const [activeAlbumId, setActiveAlbumId] = useState<string | null>(null)
@@ -84,6 +84,7 @@ const AlbumPage =  () => {
     const playAlbum = () =>{
         if(!firstClickAlbum){
             setPlayingIndex(0)
+            setFirstClick(true)
             if(albumId)
                 setActiveAlbumId(albumId)
             if(albumSongs) {
@@ -143,8 +144,8 @@ const AlbumPage =  () => {
                                 )
                             }
                         </IconButton>
-                        <IconButton onClick={() => setLike(!like)}>
-                            {!like ? (
+                        <IconButton onClick={() => setLikeAlbum(!likeAlbum)}>
+                            {!likeAlbum ? (
                                     <FavoriteRoundedIcon sx={{fontSize: 40}} className="favorite"/>
                                 )
                                 :(
@@ -203,16 +204,20 @@ const AlbumPage =  () => {
                                         <IconButton>
                                             {playingIndex === index ? (
                                                 pause ? (
-                                                    <PlayCircleOutlineRoundedIcon className="track_number" />
+                                                    <PlayCircleOutlineRoundedIcon className="track_number" style={{color:"rgb(30,215,96)"}}/>
                                                 ) : (
-                                                    <PauseCircleOutlineRoundedIcon className="track_number" />
+                                                    <PauseCircleOutlineRoundedIcon className="track_number" style={{color:"rgb(30,215,96)"}}/>
                                                 )
                                             ) : (
                                                 <PlayCircleOutlineRoundedIcon className="track_number" />
                                             )}
                                         </IconButton>
                                     ) : (
-                                        index + 1
+                                        (playingIndex === index && !pause ? (
+                                            <img width={14} height={14} alt={"gif"} src={"https://open.spotifycdn.com/cdn/images/equaliser-animated-green.f5eb96f2.gif"}/>
+                                        ) : (
+                                            <div>{index + 1}</div>
+                                        ))
                                     )}
                                 </div>
                                 <img src={`http://localhost:5000/${track.cover_url}`} alt={"track_cover"}
@@ -220,7 +225,13 @@ const AlbumPage =  () => {
                             </div>
                             <div className="track_details">
                                 <div className="track_artist">{track.artist}</div>
-                                <div className="track_title">{track.title}</div>
+                                {playingIndex === index ? (
+                                    <div className="track_title" style={{color:"rgb(30,215,96)"}}>{track.title}</div>
+                                    ) : (
+                                    <div className="track_title">{track.title}</div>
+                                )
+
+                                }
                             </div>
                             <div className="track_duration">{track.duration}</div>
                         </div>
