@@ -1,0 +1,257 @@
+.playlistPage{
+  width: calc(100% - 200px);
+  margin-left: 180px;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow-y: scroll;
+
+  .playlist_image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .playlist_image:hover{
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+}
+.playlistHeader {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 50px);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 35vh;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid #525151;
+}
+
+.playlistCover {
+  display: flex;
+  margin-left: 70px;
+  width: 200px;
+  height: 200px;
+  margin-right: 20px;
+  border-radius: 4px;
+}
+
+.playlistDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.playlistTitle {
+  font-size: 66px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.playlistOwner {
+  color: white;
+  font-size: 24px;
+}
+
+.albumInfo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.image-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.image-modal-content {
+  max-width: 60%;
+  max-height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-modal-content img {
+  max-width: 500px;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.track_image_container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.track_number{
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+  padding-right: 10px ;
+}
+
+.track_image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.playlist_track{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  width: 90%;
+}
+
+.playlist_track:hover{
+  background-color: rgb(49,49,49);
+}
+
+.track_title{
+  margin-left: 10px;
+}
+
+.track_details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.track_artist{
+  font-size: 14px;
+  color: white;
+  padding-left: 10px;
+}
+
+.favorite{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  color: gray;
+}
+
+.favorite_like{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(30,215,96);
+
+}
+
+.track_container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% - 50px);
+  border-radius: 0 0 10px 10px;
+}
+
+.InfoTrackContainer{
+  margin-top: 10px;
+  width: 100%;
+}
+
+.playAlbumIcon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(30,215,96);
+}
+
+
+.playIcon{
+  display: flex;
+  align-items: center;
+}
+
+.MoreFeature{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+}
+
+.AlbumInfoSongs{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+
+  .Info{
+    display: flex;
+    width: 90%;
+    height: 30px;
+    border-bottom: solid 0.5px gray;
+  }
+
+  .durationTrackIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    color: gray;
+  }
+
+  .TrackIndex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:gray;
+  }
+
+  .TrackTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    height: 20px;
+    margin-left: 50px;
+  }
+}
+
+.tracks{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+
+.track_duration{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+}
+
+.whitespace{
+  height: 100px;
+  margin-top: 100px;
+  font-size: 200px;
+}

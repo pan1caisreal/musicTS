@@ -1,0 +1,22 @@
+{
+  "musicTs": "MusicTs",
+  "Profile": "Profile",
+  "LikeSong": "Like Song",
+  "MyPlaylists": "My playlists",
+  "LikeAlbum": "Like Album",
+  "Search": "Search",
+  "Logout": "Logout",
+  "Login": "Login",
+  "Registration": "Registration",
+  "About": "About us",
+  "Email": "Email",
+  "Password": "Password",
+  "Invalid email address": "Invalid email address",
+  "Invalid password": "Password must be at least 8 characters long",
+  "Username": "Username",
+  "Invalid verify": "Passwords don't match",
+  "VerifyPassword": "Verify password",
+  "LoginError": "Enter the user name",
+  "404": "Page not Found",
+  "Oops": "Oops"
+}

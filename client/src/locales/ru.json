@@ -1,0 +1,22 @@
+{
+  "musicTs": "MusicTs",
+  "Profile": "Профиль",
+  "LikeSong": "Любимые песни",
+  "MyPlaylists": "Мои плейлисты",
+  "LikeAlbum": "Любимые альбомы",
+  "Search": "Поиск",
+  "Logout": "Выйти",
+  "Login": "Авторизация",
+  "Registration": "Регистрация",
+  "About": "О нас",
+  "Email": "Почта",
+  "Password": "Пароль",
+  "Invalid email address": "Неправильный адресс электронной почты",
+  "Invalid password": "Пароль должен быть не меньше 8 символов",
+  "Username": "Имя пользователя",
+  "Invalid verify": "Пароли не совпадают",
+  "VerifyPassword": "Подтвердитие пароль",
+  "LoginError": "Введите имя пользователя",
+  "404": "Страница не найдена",
+  "Oops": "Ой"
+}

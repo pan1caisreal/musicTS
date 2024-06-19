@@ -1,0 +1,56 @@
+@import "var";
+
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.material-symbols-outlined{
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+li {
+  color: $main_color;
+  padding: 10px;
+  transition: $transition_time;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  &:last-child {
+    border-bottom: 1px solid #ccc;
+  }
+
+  &:hover{
+    color: $hover_color;
+    transition: $transition_time;
+  }
+}
+
+@media (max-width: 600px) {
+  .TextMenu{
+      display: none;
+  }
+  .sidebar{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .sidebar li{
+    display: flex;
+    justify-content: center;
+  }
+
+
+}

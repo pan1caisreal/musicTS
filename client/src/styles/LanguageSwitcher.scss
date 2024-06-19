@@ -1,0 +1,19 @@
+@import "var";
+
+.language-switcher {
+  background-color: black;
+  color: $main_color;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover{
+    color: $hover_color;
+    transition: $transition_time;
+  }
+}
+
+.language-switcher:focus {
+  outline: none;
+}
